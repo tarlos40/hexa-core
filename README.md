@@ -1,6 +1,13 @@
 # hexa-core
 A CLI para adicionar componentes e iniciar projetos rapidamente.
 
+## Instalação
+Use o comando `install` para instalar o Hexa Core em seu projeto
+
+```bash
+npm install hexa-core@latest
+```
+
 ## Uso
 Use o comando `init` para inicializar um novo projeto com todas as dependências.
 
