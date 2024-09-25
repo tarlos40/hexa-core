@@ -1,7 +1,8 @@
-import { useNavigate } from 'react-router-dom';
+import * as React from "react";
 
+// Create the custom Link component
 export const Link = ({ href, children, className, ...props }) => {
-  const navigate = useNavigate();
+  const { navigate } = useRouter();
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -15,12 +16,44 @@ export const Link = ({ href, children, className, ...props }) => {
   );
 };
 
-import React, { useContext, createContext, useState } from 'react';
+// Create the custom NavLink component
+export const NavLink = ({
+  to,
+  activeClassName = "active",
+  hoverClassName = "hover",
+  className = "",
+  children,
+  ...props
+}) => {
+  const { currentPath } = useRouter();
+  const isActive = currentPath === to;
 
-const RouterContext = createContext();
+  return (
+    <Link
+      href={to}
+      className={`${className} ${isActive ? activeClassName : ""}`}
+      onMouseEnter={(e) => {
+        if (hoverClassName) {
+          e.currentTarget.classList.add(hoverClassName);
+        }
+      }}
+      onMouseLeave={(e) => {
+        if (hoverClassName) {
+          e.currentTarget.classList.remove(hoverClassName);
+        }
+      }}
+      {...props}
+    >
+      {children}
+    </Link>
+  );
+};
 
-export const Router = ({ children }) => {
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+// Create the custom Router context
+const RouterContext = React.createContext();
+
+export const HexaRouter = ({ children }) => {
+  const [currentPath, setCurrentPath] = React.useState(window.location.pathname);
 
   const navigate = (path) => {
     window.history.pushState({}, "", path);
@@ -42,13 +75,16 @@ export const Router = ({ children }) => {
   );
 };
 
-export const useRouter = () => useContext(RouterContext);
+// Hook to access the router context
+export const useRouter = () => React.useContext(RouterContext);
 
-export const Routes = ({ children }) => {
+// HexaRoutes component
+export const HexaRoutes = ({ children }) => {
   return children;
 };
 
-export const Route = ({ path, element }) => {
+// HexaRoute component
+export const HexaRoute = ({ path, element }) => {
   const { currentPath } = useRouter();
   return currentPath === path ? element : null;
 };
