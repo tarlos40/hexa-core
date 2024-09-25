@@ -55,8 +55,6 @@ if (command === "init") {
 
         const filesToCopy = [
           "src/lib",
-          "src/components/theme-provider-jsx",
-          "src/components/theme-toggle-jsx",
           "src/index.css",
           "components.json",
           "jsconfig.json",
@@ -98,6 +96,8 @@ if (command === "init") {
   const componentName = process.argv[3];
 
   const components = {
+    router: "hexa-core",
+    theme: "hexa-core",
     button: "hexa-core",
     dropdown: "hexa-core",
   };
@@ -107,7 +107,7 @@ if (command === "init") {
     const sourcePath = path.join(
       "node_modules",
       packageName,
-      "src/components/ui",
+      "src/components/",
       `${componentName}.jsx`
     );
     const destinationPath = path.join(
