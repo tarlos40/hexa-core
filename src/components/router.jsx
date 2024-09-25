@@ -1,6 +1,5 @@
 import * as React from "react";
 
-// Create the custom Link component
 export const Link = ({ href, children, className, ...props }) => {
   const { navigate } = useRouter();
 
@@ -16,7 +15,6 @@ export const Link = ({ href, children, className, ...props }) => {
   );
 };
 
-// Create the custom NavLink component
 export const NavLink = ({
   to,
   activeClassName = "active",
@@ -49,11 +47,12 @@ export const NavLink = ({
   );
 };
 
-// Create the custom Router context
 const RouterContext = React.createContext();
 
 export const HexaRouter = ({ children }) => {
-  const [currentPath, setCurrentPath] = React.useState(window.location.pathname);
+  const [currentPath, setCurrentPath] = React.useState(
+    window.location.pathname
+  );
 
   const navigate = (path) => {
     window.history.pushState({}, "", path);
@@ -75,15 +74,12 @@ export const HexaRouter = ({ children }) => {
   );
 };
 
-// Hook to access the router context
 export const useRouter = () => React.useContext(RouterContext);
 
-// HexaRoutes component
 export const HexaRoutes = ({ children }) => {
   return children;
 };
 
-// HexaRoute component
 export const HexaRoute = ({ path, element }) => {
   const { currentPath } = useRouter();
   return currentPath === path ? element : null;

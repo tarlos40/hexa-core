@@ -1,13 +1,19 @@
 import { NavLink } from "@/components/router";
 import { ThemeToggle } from "@/components/theme";
 
+import { Navbar, NavbarBrand } from "@/components/navbar";
+
 const TestePage = () => {
   return (
     <>
+      <Navbar>
+        <NavbarBrand href={"/home"}>
+          <p>teste</p>
+        </NavbarBrand>
+      </Navbar>
       <NavLink
         to="/"
-        activeClassName="text-blue-500 font-bold"
-        hoverClassName="text-gray-700"
+        activeClassName="text-primary"
       >
         Home
       </NavLink>
