@@ -100,6 +100,8 @@ if (command === "init") {
     theme: "hexa-core",
     button: "hexa-core",
     dropdown: "hexa-core",
+    navbar: "hexa-core",
+    bottombar: "hexa-core"
   };
 
   if (componentName in components) {

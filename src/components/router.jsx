@@ -16,7 +16,7 @@ export const HexaLink = ({ href, children, className, ...props }) => {
 };
 
 export const HexaNavLink = ({
-  to,
+  href,
   activeClassName = "active",
   hoverClassName = "hover",
   className = "",
@@ -24,11 +24,11 @@ export const HexaNavLink = ({
   ...props
 }) => {
   const { currentPath } = useRouter();
-  const isActive = currentPath === to;
+  const isActive = currentPath === href;
 
   return (
     <HexaLink
-      href={to}
+      href={href}
       className={`${className} ${isActive ? activeClassName : ""}`}
       onMouseEnter={(e) => {
         if (hoverClassName) {
