@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const Link = ({ href, children, className, ...props }) => {
+export const HexaLink = ({ href, children, className, ...props }) => {
   const { navigate } = useRouter();
 
   const handleClick = (e) => {
@@ -9,13 +9,13 @@ export const Link = ({ href, children, className, ...props }) => {
   };
 
   return (
-    <a href={href} onClick={handleClick} className={className} {...props}>
+    <a href={href} onClick={handleClick} className={`font-poppins ${className}`} {...props}>
       {children}
     </a>
   );
 };
 
-export const NavLink = ({
+export const HexaNavLink = ({
   to,
   activeClassName = "active",
   hoverClassName = "hover",
@@ -27,7 +27,7 @@ export const NavLink = ({
   const isActive = currentPath === to;
 
   return (
-    <Link
+    <HexaLink
       href={to}
       className={`${className} ${isActive ? activeClassName : ""}`}
       onMouseEnter={(e) => {
@@ -43,7 +43,7 @@ export const NavLink = ({
       {...props}
     >
       {children}
-    </Link>
+    </HexaLink>
   );
 };
 

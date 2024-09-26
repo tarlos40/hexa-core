@@ -1,24 +1,29 @@
-import { NavLink } from "@/components/router";
 import { ThemeToggle } from "@/components/theme";
+import { HexaNavLink } from "@/components/router";
 
-import { Navbar, NavbarBrand } from "@/components/navbar";
+import { Navbar, NavbarContent, NavbarLink, NavbarBrand } from "@/components/navbar";
 
 const TestePage = () => {
   return (
     <>
       <Navbar>
-        <NavbarBrand href={"/home"}>
-          <p>teste</p>
-        </NavbarBrand>
+        <NavbarContent>
+          <NavbarBrand href={"/"}>
+            <p>logo</p>
+          </NavbarBrand>
+        </NavbarContent>
+        
+        <NavbarContent>
+          <NavbarLink activeClassName="text-red-500" href={"/"}>
+            inicio
+          </NavbarLink>
+        </NavbarContent>
       </Navbar>
-      <NavLink
-        to="/"
-        activeClassName="text-primary"
-      >
-        Home
-      </NavLink>
+      
+      <HexaNavLink to="/" activeClassName="text-blue-500" hoverClassName="text-gray-700">
+          Home
+        </HexaNavLink>
       <ThemeToggle />
-      <h1>TestePage</h1>
     </>
   );
 };
