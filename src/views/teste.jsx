@@ -7,8 +7,9 @@ import {
   NavbarBrand,
 } from "@/components/navbar";
 import { Bottombar, BottombarItem } from "@/components/bottombar";
+import { Button } from "@/components/button";
 
-import { Home } from "lucide-react";
+import { Home, BellRing } from "lucide-react";
 
 const TestePage = () => {
   return (
@@ -21,7 +22,7 @@ const TestePage = () => {
         </NavbarContent>
 
         <NavbarContent>
-          <NavbarItem activeClassName="text-primary" href={"/"}>
+          <NavbarItem activeClassName="text-primary" hoverClassName={"text-secondary"} href={"/"}>
             inicio
           </NavbarItem>
         </NavbarContent>
@@ -46,24 +47,29 @@ const TestePage = () => {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius unde dolore saepe illo magni eum, culpa nihil libero accusamus temporibus, cumque quidem. Error atque dicta exercitationem porro? Explicabo, consectetur eveniet?
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius unde dolore saepe illo magni eum, culpa nihil libero accusamus temporibus, cumque quidem. Error atque dicta exercitationem porro? Explicabo, consectetur eveniet?
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius unde dolore saepe illo magni eum, culpa nihil libero accusamus temporibus, cumque quidem. Error atque dicta exercitationem porro? Explicabo, consectetur eveniet?
+        
+        <Button variant={"default"}>Teste</Button>
       </main>
 
       <Bottombar>
         <BottombarItem href={"/"} activeClassName={"text-primary"} hoverClassName={"text-secondary"} >
           <Home />
-          <p>teste</p>
+          <p>Inicio</p>
         </BottombarItem>
 
-        <BottombarItem>
-          <p>testado</p>
+        <BottombarItem href={"/"} hoverClassName={"text-secondary"} >
+          <BellRing />
+          <p>Notificação</p>
+        </BottombarItem>
+        
+        <BottombarItem href={"/"} hoverClassName={"text-secondary"} >
+          <Home />
+          <p>Calendario</p>
         </BottombarItem>
 
-        <BottombarItem>
-          <p>teste</p>
-        </BottombarItem>
-
-        <BottombarItem>
-          <p>teste</p>
+        <BottombarItem href={"/"}  hoverClassName={"text-secondary"} >
+          <BellRing />
+          <p>Conta</p>
         </BottombarItem>
       </Bottombar>
 

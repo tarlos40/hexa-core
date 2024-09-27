@@ -25,7 +25,7 @@ export const Navbar = ({ className, children, ...props }) => {
   return (
     <nav
       className={cn(
-        "transition-transform duration-300 bg-background shadow flex flex-row justify-between items-center fixed top-0 inset-x-0 translate-y-0 md:translate-y-0/2 px-4 py-2 w-full z-10",
+        "transition-transform duration-300 select-none bg-background border-b border-input shadow flex flex-row justify-between items-center fixed top-0 inset-x-0 translate-y-0 md:translate-y-0/2 px-4 py-2 w-full z-10",
         isVisible ? "translate-y-0" : "-translate-y-full",
         className
       )}
@@ -39,7 +39,7 @@ Navbar.displayName = "Navbar";
 
 export const NavbarContent = ({ className, children, ...props }) => {
   return (
-    <div className={cn("flex flex-row items-center", className)} {...props}>
+    <div className={cn("flex flex-row items-center py-2", className)} {...props}>
       {children}
     </div>
   );
