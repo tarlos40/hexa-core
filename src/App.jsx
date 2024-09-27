@@ -1,18 +1,21 @@
+import * as React from "react";
 import { HexaRouter, HexaRoutes, HexaRoute } from "./components/router";
 import { ThemeProvider } from "./components/theme";
 
-import TestePage from "./views/teste";
+const HomePage = React.lazy(() => import("./views/home"));
 
 function App() {
   return (
     <>
-      <HexaRouter>
-        <HexaRoutes>
-          <ThemeProvider>
-            <HexaRoute path={"/"} element={<TestePage />} />
-          </ThemeProvider>
-        </HexaRoutes>
-      </HexaRouter>
+      <React.Suspense fallback={<p>Carregando...</p>}>
+        <HexaRouter>
+          <HexaRoutes>
+            <ThemeProvider>
+              <HexaRoute path={"/"} element={<HomePage />} />
+            </ThemeProvider>
+          </HexaRoutes>
+        </HexaRouter>
+      </React.Suspense>
     </>
   );
 }

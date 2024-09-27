@@ -96,12 +96,16 @@ if (command === "init") {
   const componentName = process.argv[3];
 
   const components = {
+    accordion: "hexa-core",
+    avatar: "hexa-core",
+    bottombar: "hexa-core",
+    button: "hexa-core",
+    card: "hexa-core",
+    dropdown: "hexa-core",
+    input: "hexa-core",
+    navbar: "hexa-core",
     router: "hexa-core",
     theme: "hexa-core",
-    button: "hexa-core",
-    dropdown: "hexa-core",
-    navbar: "hexa-core",
-    bottombar: "hexa-core"
   };
 
   if (componentName in components) {

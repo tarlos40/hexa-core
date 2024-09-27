@@ -43,45 +43,45 @@ const Button = React.forwardRef(
     const Comp = asChild ? Slot : "button";
 
     const handleRipple = (event) => {
-    const button = event.currentTarget;
-    const circle = document.createElement("span");
+      const button = event.currentTarget;
+      const circle = document.createElement("span");
 
-    const diameter = Math.max(button.clientWidth, button.clientHeight);
-    const radius = diameter / 2;
+      const diameter = Math.max(button.clientWidth, button.clientHeight);
+      const radius = diameter / 2;
 
-    circle.style.width = circle.style.height = `${diameter}px`;
-    circle.style.left = `${
-      event.clientX - button.getBoundingClientRect().left - radius
-    }px`;
-    circle.style.top = `${
-      event.clientY - button.getBoundingClientRect().top - radius
-    }px`;
-    circle.style.position = "absolute";
-    circle.style.backgroundColor = "rgba(255, 255, 255, 0.6)";
-    circle.style.borderRadius = "50%";
-    circle.style.transform = "scale(0)";
-    circle.style.pointerEvents = "none";
-    circle.style.opacity = "1";
-    circle.style.transition = "transform 600ms ease, opacity 600ms ease";
+      circle.style.width = circle.style.height = `${diameter}px`;
+      circle.style.left = `${
+        event.clientX - button.getBoundingClientRect().left - radius
+      }px`;
+      circle.style.top = `${
+        event.clientY - button.getBoundingClientRect().top - radius
+      }px`;
+      circle.style.position = "absolute";
+      circle.style.backgroundColor = "rgba(255, 255, 255, 0.6)";
+      circle.style.borderRadius = "50%";
+      circle.style.transform = "scale(0)";
+      circle.style.pointerEvents = "none";
+      circle.style.opacity = "1";
+      circle.style.transition = "transform 600ms ease, opacity 600ms ease";
 
-    circle.classList.add("ripple");
+      circle.classList.add("ripple");
 
-    const existingRipple = button.querySelector(".ripple");
-    if (existingRipple) {
-      existingRipple.remove();
-    }
+      const existingRipple = button.querySelector(".ripple");
+      if (existingRipple) {
+        existingRipple.remove();
+      }
 
-    button.appendChild(circle);
+      button.appendChild(circle);
 
-    requestAnimationFrame(() => {
-      circle.style.transform = "scale(4)";
-      circle.style.opacity = "0";
-    });
+      requestAnimationFrame(() => {
+        circle.style.transform = "scale(4)";
+        circle.style.opacity = "0";
+      });
 
-    circle.addEventListener("transitionend", () => {
-      circle.remove();
-    });
-  };
+      circle.addEventListener("transitionend", () => {
+        circle.remove();
+      });
+    };
 
     return (
       <Comp
@@ -91,9 +91,9 @@ const Button = React.forwardRef(
         )}
         ref={ref}
         onClick={(e) => {
-        handleRipple(e);
-        if (props.onClick) props.onClick(e);
-      }}
+          handleRipple(e);
+          if (props.onClick) props.onClick(e);
+        }}
         {...props}
       />
     );

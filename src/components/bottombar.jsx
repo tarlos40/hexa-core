@@ -25,7 +25,7 @@ export const Bottombar = ({ className, children, ...props }) => {
   return (
     <div
       className={cn(
-        "transition-transform duration-300 bg-background border-t border-input shadow-[0_-2px_4px_rgba(0,0,0,0.1)] flex flex-row justify-around items-center fixed bottom-0 inset-x-0 translate-y-0 md:translate-y-0/2 px-2 py-2 w-full z-10",
+        "transition-transform duration-300 bg-background border-t border-input shadow-[0_-2px_4px_rgba(0,0,0,0.1)] flex flex-row justify-around items-center fixed bottom-0 inset-x-0 translate-y-0 md:translate-y-0/2 px-2 md:px-1 py-2 md:py-1 w-full z-10",
         isVisible ? "translate-y-0" : "translate-y-full",
         className
       )}
@@ -92,7 +92,7 @@ export const BottombarItem = ({
       activeClassName={activeClassName}
       hoverClassName={hoverClassName}
       className={cn(
-        "rounded-md flex flex-col items-center relative font-semibold text-sm px-4 py-1 gap-1 overflow-hidden",
+        "rounded-md flex flex-col items-center relative font-semibold text-sm md:text-xs px-4 md:px-2 py-1 md:py-0.5 gap-1 overflow-hidden",
         className
       )}
       onClick={(e) => {
